@@ -131,15 +131,9 @@ bool DShotRMT::begin(dshot_mode_t dshot_mode, bool is_bidirectional)
 }
 
 // Define a function to send a DShot command over an RMT interface to control a brushless motor's speed.
-void DShotRMT::sendThrottleValue(uint16_t throttle_value)
+void DShotRMT::sendValue(uint16_t throttle_value)
 {
     dshot_packet_t dshot_rmt_packet = {};
-
-    // Check if the throttle value is less than the minimum allowed value for the DShot protocol.
-    if (throttle_value < DSHOT_THROTTLE_MIN)
-    {
-        throttle_value = DSHOT_THROTTLE_MIN;
-    }
 
     // Check if the throttle value is greater than the maximum allowed value for the DShot protocol.
     if (throttle_value > DSHOT_THROTTLE_MAX)

@@ -180,11 +180,11 @@ public:
     // indicating whether or not the initialization was successful.
     bool begin(dshot_mode_t dshot_mode = DSHOT_OFF, bool is_bidirectional = false);
 
-    // The sendThrottleValue() function sends a DShot packet with a given
-    // throttle value (between 49 and 2047) and an optional telemetry
+    // The sendValue() function sends a DShot packet with a given
+    // value (between 0 and 2047) and an optional telemetry
     // request flag.
     // void sendThrottleValue(uint16_t throttle_value, telemetric_request_t telemetric_request = NO_TELEMETRIC);
-    void sendThrottleValue(uint16_t throttle_value);
+    void sendValue(uint16_t throttle_value);
 
 private:
     rmt_item32_t dshot_tx_rmt_item[DSHOT_PACKET_LENGTH]; // An array of RMT items used to send a DShot packet.
